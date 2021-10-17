@@ -1,9 +1,11 @@
 
 .App {
     max-width: 1200px;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0 auto;
     background-color: rgb(156, 156, 156);
+    overflow: hidden;
+    
 
         .content {
             .main-wr {
@@ -39,8 +41,10 @@
                 background-color: #313131e1;
             }
 
-
-            
+            .blog-container {
+                max-height: 80vh;
+                overflow: scroll;
+            }
 
         }
     
