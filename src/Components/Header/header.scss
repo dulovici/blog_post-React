@@ -1,0 +1,33 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    color: whitesmoke;
+    background-color: rgb(49, 49, 49);
+    padding: 10px 15px;
+
+    .search-wr {
+        display: flex;
+
+        ul li{
+            display: inline;
+            margin-left: 20px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        ul li:hover {
+            color: goldenrod;
+        }
+
+        .hamburger {
+            width: 1.4em;
+            margin-left: 10px;
+            filter: invert(1);
+            cursor: pointer;
+        }
+
+        .hamburger:hover {
+            filter: invert(83%) sepia(32%) saturate(2295%) hue-rotate(344deg) brightness(90%) contrast(89%);
+        }
+    }
+}

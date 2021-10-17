@@ -1,0 +1,52 @@
+
+.App {
+    max-width: 1200px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: rgb(156, 156, 156);
+
+        .content {
+            .main-wr {
+                width: 100%;
+            }
+
+            display: flex;
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(156, 156, 156);
+
+            
+            h2 {
+                color: rgb(11, 11, 27)
+            }
+            .newbtn-wr {
+                width: 100%;
+                display: flex;
+                flex-direction: row-reverse;
+                margin-bottom: 20px;
+            }
+
+            .new-btn {
+                background-color: #313131;
+                padding: 5px 55px;
+                border-radius: 3px;
+                color: whitesmoke;
+                border: none;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+            .new-btn:hover {
+                background-color: #313131e1;
+            }
+
+
+            
+
+        }
+    
+
+        
+}
+
+
+
