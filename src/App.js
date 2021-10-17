@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './App.scss';
 import { useViewport } from './Hooks/useViewport';
+import { ADD_MODAL_STYLE, EDIT_MODAL_STYLE, DELETE_MODAL_STYLE } from './Modal_Styles/modal_styles';
+import axios from 'axios';
+import Modal from 'react-modal';
+import './App.scss';
 import Header from './Components/Header/Header';
 import Categories from './Components/Categories/Categories';
 import MsgBox from './Components/MsgBox/MsgBox';
 import Post from './Components/Post/Post';
-import AddModal from './Components/AddModal/AddModal';
-import DeleteModal from './Components/DeleteModal/DeleteModal';
-import EditModal from './Components/EditModal/EditModal';
+import AddModalUI from './Components/AddModal/AddModalUI';
+import DeleteModalUI from './Components/DeleteModal/DeleteModalUI';
+import EditModalUI from './Components/EditModal/EditModalUI';
 
 
 function App() {
@@ -29,7 +31,7 @@ function App() {
   const { width } = useViewport()
   const brakepoint = 830;
 
-  // Filtered Data
+  // Search
   const filtered = data.filter(el => el.title.toLowerCase().includes(search.toLocaleLowerCase()))
 
   useEffect(() => {
@@ -47,7 +49,7 @@ function App() {
         />
 
         <main className='content'>
-          {width > brakepoint ? <Categories /> : null}
+          {width > brakepoint ? <Categories setMessage={setMessage} /> : null}
 
           <div className='main-wr'>
             <h2>Welcomne to My Blog</h2>
@@ -58,7 +60,7 @@ function App() {
               <button className='new-btn' onClick={() => setNewPostIsUp(true)}>Add Post</button>
             </div>
 
-            {width < brakepoint ? <Categories /> : null}
+            {width < brakepoint ? <Categories setMessage={setMessage} /> : null}
 
             <div className='blog-container'>
               {filtered.map(el => {
@@ -71,31 +73,34 @@ function App() {
                 />
               })}
 
-              <AddModal
-                newPostIsUp={newPostIsUp}
-                setNewPostIsUp={setNewPostIsUp}
-                data={data}
-                setData={setData}
-                setMessage={setMessage}
-              />
+              <Modal isOpen={newPostIsUp} style={ADD_MODAL_STYLE}>
+                <AddModalUI
+                  setNewPostIsUp={setNewPostIsUp}
+                  data={data}
+                  setData={setData}
+                  setMessage={setMessage}
+                />
+              </Modal>
 
-              <DeleteModal
-                deletePostIsUp={deletePostIsUp}
-                setDeletePostlIsUp={setDeletePostlIsUp}
-                pickedId={pickedId}
-                data={data}
-                setData={setData}
-                setMessage={setMessage}
-              />
+              <Modal isOpen={deletePostIsUp} style={DELETE_MODAL_STYLE}>
+                <DeleteModalUI
+                  setDeletePostlIsUp={setDeletePostlIsUp}
+                  pickedId={pickedId}
+                  data={data}
+                  setData={setData}
+                  setMessage={setMessage}
+                />
+              </Modal>
 
-              <EditModal
-                editPostIsUp={editPostIsUp}
-                setEditPostIsUp={setEditPostIsUp}
-                pickedId={pickedId}
-                data={data}
-                setData={setData}
-                setMessage={setMessage}
-              />
+              <Modal isOpen={editPostIsUp} style={EDIT_MODAL_STYLE}>
+                <EditModalUI
+                  setEditPostIsUp={setEditPostIsUp}
+                  pickedId={pickedId}
+                  data={data}
+                  setData={setData}
+                  setMessage={setMessage}
+                />
+              </Modal>
             </div>
           </div>
         </main>

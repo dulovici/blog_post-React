@@ -17,6 +17,12 @@
         li {
            margin-bottom: 10px;
            list-style: none;
+
+           p {
+               text-decoration: underline;
+               color: rgb(0, 10, 150);
+               cursor: pointer;
+           }
         }
     }
 
@@ -32,9 +38,6 @@
         margin-bottom: 10px;
         padding-bottom: 30px;
 
-        p {
-            // margin-right: 120px;
-        }
     
         li {
             display: inline;
