@@ -13,6 +13,8 @@ import DeleteModalUI from './Components/DeleteModal/DeleteModalUI';
 import EditModalUI from './Components/EditModal/EditModalUI';
 
 
+Modal.setAppElement('#root');
+
 function App() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
