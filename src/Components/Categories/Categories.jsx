@@ -5,8 +5,7 @@ export default function Categories(props) {
     const { setMessage } = props;
 
     const linkMessage = () => {
-        setMessage('Sorry this feature is not available at the moment.')
-
+        setMessage('Sorry this feature is not available at the moment.');
         setTimeout(() => {
             setMessage('')
         }, 3000)

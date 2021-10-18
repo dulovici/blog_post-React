@@ -6,7 +6,7 @@ import hamburger from '../../img/hamburger.png';
 export default function Header(props) {
     const { setSearch } = props;
 
-    const { width } = useViewport()
+    const { width } = useViewport();
     const brakepoint = 830;
 
 

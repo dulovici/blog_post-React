@@ -6,8 +6,7 @@ import './editModalUI.scss';
 export default function EditModalUI(props) {
     const { setEditPostIsUp, pickedId, data, setData, setMessage } = props;
 
-    const [newData, setNewData] = useState(data.filter(el => el.id === pickedId)[0])
-
+    const [newData, setNewData] = useState(data.filter(el => el.id === pickedId)[0]);
 
     const updatePost = () => {
         axios.put(`https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts/${pickedId}`, newData)
@@ -62,7 +61,7 @@ export default function EditModalUI(props) {
                                 updatePost()
                                 setEditPostIsUp(false)
                             }
-                            else console.log('jbg');
+
                         }}
                     >Edit Post</button>
                     <button

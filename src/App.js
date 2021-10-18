@@ -15,10 +15,10 @@ import EditModalUI from './Components/EditModal/EditModalUI';
 
 function App() {
   const [data, setData] = useState([]);
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
   const [pickedId, setPickedId] = useState(null);
   // Msg Box
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState('');
   //Delete Blog
   const [deletePostIsUp, setDeletePostlIsUp] = useState(false);
   //Edit Blog
@@ -28,11 +28,11 @@ function App() {
 
 
   //ViewPort
-  const { width } = useViewport()
+  const { width } = useViewport();
   const brakepoint = 830;
 
   // Search
-  const filtered = data.filter(el => el.title.toLowerCase().includes(search.toLocaleLowerCase()))
+  const filtered = data.filter(el => el.title.toLowerCase().includes(search.toLocaleLowerCase())).reverse();
 
   useEffect(() => {
     axios.get('https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts')
@@ -44,9 +44,7 @@ function App() {
   return (
     <div className="App">
       <div className='container'>
-        <Header
-          setSearch={setSearch}
-        />
+        <Header setSearch={setSearch} />
 
         <main className='content'>
           {width > brakepoint ? <Categories setMessage={setMessage} /> : null}

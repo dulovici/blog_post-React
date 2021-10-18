@@ -22,11 +22,11 @@ export default function Post(props) {
                 <div className="btns">
                     <button onClick={() => {
                         setEditPostIsUp(true);
-                        setPickedId(data.id)
+                        setPickedId(data.id);
                     }}>Edit</button>
                     <button onClick={() => {
-                        setDeletePostlIsUp(true)
-                        setPickedId(data.id)
+                        setDeletePostlIsUp(true);
+                        setPickedId(data.id);
                     }}>Delete</button>
                 </div>
             </div>
@@ -38,7 +38,6 @@ export default function Post(props) {
                 <img src={placeholder} alt="img" />
                 <img src={placeholder} alt="img" />
             </div>
-
         </div>
     )
 }

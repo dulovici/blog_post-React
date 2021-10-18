@@ -12,11 +12,13 @@ export default function AddModalUI(props) {
     const submitPost = () => {
         axios.post('https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts', newPost)
             .then(response => {
-                if (response.status === 201) setMessage('I Think This Is The Creation Of A Beautiful Blog Post.');
-                setData([...data, response.data]);
-                setTimeout(() => {
-                    setMessage('')
-                }, 3000);
+                if (response.status === 201) {
+                    setMessage('I Think This Is The Creation Of A Beautiful Blog Post.');
+                    setData([...data, response.data]);
+                    setTimeout(() => {
+                        setMessage('')
+                    }, 3000);
+                }
             })
             .catch(err => console.error(err));
     }
